@@ -96,3 +96,80 @@ https://en.wikipedia.org/wiki/Chmod
 we need to be careful when using the Init because it will not run if we restart an existing workspace.
 
 https://www.gitpod.io/docs/configure/workspaces/tasks
+
+https://www.gitpod.io/docs/configure/workspaces/tasks
+
+
+
+### working with Env vars
+
+we can list out all Environmental variable (Env Vars) usinf `env` command
+
+we can filter specific env vars using eg. `env | grep AWS_`
+
+### setting and Unsetting Env Vars
+
+In the terminal we can set using `export HELLO=`world`
+
+In the terminal we can unset using `unset HELLO`
+
+we can set env var temporaly when just running a command
+
+```sh
+HELLO=`world` ./bin/print_message
+```
+within a bash script we can set env without writing export eg.
+
+```sh
+#!/usr/bin/env bash
+
+HELLO=`world
+
+echo $HELLO
+```
+
+### Printing Vars
+
+we can print an env var using echo eg, `echo $HELLO`
+
+### Scoping of Env Vars
+
+when you opennew bash terminals in VScode it will not be aware of env that you have set in another window.
+
+If you want to Env Vars to persist across all future bash terminals that open your need to set env varsin your bash profile eg. `.bash_profile`
+
+### Persisting Env Vars in Gitpod
+
+We can persist env vars into gitpod by storing them in Gitpod secrets storage.
+
+```
+gp env HELLO=world`
+```
+
+All future worlspaces launched will set the env vars for all bash terminals opened in workspaces.
+
+You can also set env Vars in the `.gitpod.yml` but this can only contain non-sensitive env vars.
+
+### AWS CLI Installation
+
+AWS CLI installed for the project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Getting started in aws installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
+we can check if our AWS credentials is configured correctly by the following AWS CLI command:
+```sh
+aws sts get-caller-identity
+```
+
+If its successful you should see a json playload return that looks like this:
+
+```json
+{
+    "UserId": "AIDA3F2DPAKAF2R2A6KVZ",
+    "Account": "768403767936",
+    "Arn": "arn:aws:iam::768403767936:user/terraform-beginner-bootcamp"
+}
+
+we will need to generate AWS CLI credits from IAM user in order to use AWS CLI.
+
