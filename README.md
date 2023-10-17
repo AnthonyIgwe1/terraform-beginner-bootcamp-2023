@@ -173,3 +173,59 @@ If its successful you should see a json playload return that looks like this:
 
 we will need to generate AWS CLI credits from IAM user in order to use AWS CLI.
 
+## Terraform Basics
+
+
+### Terraform registry
+
+Terraform sources their providers and modules from the terraform reigistry which located at [registry.terraform.io](http://registry.terraform.io/)
+
+- **Providers** is an interface to APIs that will allow to create resources in terraform.
+- **Modules** are a way to refactor or make large amount of terraform code modular, protable and sharable.
+
+[Random terraform providers](https://registry.terraform.io/providers/hashicorp/random)
+
+
+### Terraform console
+
+We can see a list of all terraform commands by simply typing `terraform`
+
+#### Terraform Init
+
+At the start of a new terraform project we will run `terraform init` to download the binaries for the terraform providers that we'll use in this project.
+
+#### Terraform Plan
+`terraform plan`
+
+This will genrate out a changeset, about the state of our infrastructure and what will be changed.
+
+we can output this changeset ie."plan" to be passed to an apply, but often you can just ignore outputting.
+
+### Terraform apply
+
+`terraform plan`
+
+This will run a plan and pass the chageset to be executed by terraform, apply should prompt us yes or no.
+
+If we want to automatically approve an apply we can provide the auto approve flag eg. `terraform app,y --auto-approve`
+
+
+### Terraform lock files
+
+`.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
+
+### Terraform state files
+
+`terraform.tfstate` contain  information about the current state of your infrastructure.
+
+This files **should not be committed** to your VCS.
+
+This file can contain sensitive date.
+
+If you lose this file, you lose knowing the state of your infrastructure.
+
+`.terraform.tfstate.backup` is the previuos state file state.
+
+### Terraform Directory
+
+`.terraform` directory contains binaries of terraform providers
