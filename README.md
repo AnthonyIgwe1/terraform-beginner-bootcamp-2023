@@ -97,6 +97,8 @@ we need to be careful when using the Init because it will not run if we restart 
 
 https://www.gitpod.io/docs/configure/workspaces/tasks
 
+https://www.gitpod.io/docs/configure/workspaces/tasks
+
 
 
 ### working with Env vars
@@ -171,7 +173,6 @@ If its successful you should see a json playload return that looks like this:
 
 we will need to generate AWS CLI credits from IAM user in order to use AWS CLI.
 
-
 ## Terraform Basics
 
 
@@ -227,4 +228,4 @@ If you lose this file, you lose knowing the state of your infrastructure.
 
 ### Terraform Directory
 
-`.terraform` directory contains binaries of terraform providers.
+`.terraform` directory contains binaries of terraform providers
