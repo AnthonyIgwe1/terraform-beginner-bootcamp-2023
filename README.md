@@ -248,8 +248,10 @@ https://app.terraform.io/app/settings/tokens?source=terraform-login
 ```
 
 Then create open the file manually here:
-```
+
+```sh
 touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d.credentials.tfrc.json
 ```
 Provide the following  code (replace your token in the file):
 ```json
@@ -261,3 +263,6 @@ Provide the following  code (replace your token in the file):
   }
 }
 ``````
+
+we have automated this workaround with the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
+
