@@ -49,3 +49,14 @@ This is the default file to load in terraform variables in blunk
 ### order of terraform variables
 
 - TODO: document which terraform variables takes presendence.
+
+## Dealing with configuration Drift
+
+### Fix Missing Resources with Terraform Import
+[Teraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+### Fix Manual Configuation
+
+If someone goes and delete or modifies cloud resources manually through clickops.
+
+If we run Terraform plan with attempt to put our infrastructure back into the expected state fixing configuration drift
