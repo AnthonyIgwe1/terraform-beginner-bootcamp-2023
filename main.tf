@@ -1,4 +1,4 @@
-   # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
+# https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
 resource "random_string" "bucket_name" {
   lower   = true
   upper   = false
