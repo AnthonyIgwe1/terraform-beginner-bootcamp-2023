@@ -8,7 +8,7 @@ output "s3_website_endpoint" {
   value = module.terrahouse_aws.website_endpoint
 }
 
-local {
+locals {
   root_path = path.root
 }
 
