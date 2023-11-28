@@ -1,5 +1,14 @@
-terratowns_endpoint="https://terratowns.cloud/api"
-index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
-content_version=1
+output "bucket_name" {
+  description = "Bucket name for our static website hosting"
+  value = module.home_arcanum_hosting.bucket_name
+}
+
+output "s3_website_endpoint" {
+  description = "S3 Static Website hosting endpoint"
+  value = module.home_arcanum_hosting.website_endpoint
+}
+
+output "cloudfront_url" {
+  description = "The CloudFront Distribution Domain Name"
+  value = module.home_arcanum_hosting.domain_name
+}
